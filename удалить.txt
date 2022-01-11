@@ -1,0 +1,119 @@
+GitHub. HW_2
+
+Сначала создал на Remote Repo GitHub репозиторий: Course_by_Vadim_Ksendzov 
+
+Затем клонировал его через GitBash на Work Repo:  $ git clone git@github.com:Aliaksei78/Course_by_Vadim_Ksendzov.git
+
+Зашёл в него:  $ cd Course_by_Vadim_Ksendzov
+И оказался в основной ветке:  ... MINGW64 /d/GitHub/Course_by_Vadim_Ksendzov (main)
+
+1. На локальном репозитории сделать ветки для:
+- Postman:    	          $ git branch Postman   
+- Jmeter:                 $ git branch JMeter
+- CheckLists: 	          $ git branch CheckLists
+- Bag Reports:            $ git branch BugReports
+- SQL:        	          $ git branch SQL
+- Charles:   	          $ git branch Charles
+- Mobile testing:         $ git branch MobileTesting
+- LinuxTerminal_GitBash:  $ git branch LinuxTerminal_GitBash
+- GitHub :                $ git branch GitHub
+
+проверил что создалось:  $ git branch
+получил ответ:  BugReports
+                Charles
+                CheckLists
+		GitHub
+                JMeter
+                LinuxTerminal_GitBash
+                MobileTesting
+                Postman
+                SQL
+              * main
+
+
+2. Запушить все ветки на внешний репозиторий:  
+$ git push -u origin BugReports Charles CheckLists GitHub JMeter LinuxTerminal_GitBash MobileTesting Postman SQL
+
+
+3. В ветке BugReports сделать текстовый документ со структурой баг репорта:
+зашёл в ветку BugReports:  $ git checkout BugReports
+$ touch BugReport.txt
+$ vim BugReport.txt
+Нажал I, ввёл структуру, нажал ESC :wq Enter
+
+
+4. Запушить структуру багрепорта на внешний репозиторий:
+$ git add BugReport.txt
+$ git commit -m "The file BugReport.txt is added"
+$ git push
+получил ответ: Enumerating objects: 4, done.
+               Counting objects: 100% (4/4), done.
+               Delta compression using up to 4 threads
+               Compressing objects: 100% (3/3), done.
+               Writing objects: 100% (3/3), 450 bytes | 150.00 KiB/s, done.
+               Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+               To github.com:Aliaksei78/Course_by_Vadim_Ksendzov.git
+               4ed23d5..4eea148  BugReports -> BugReports
+
+
+5. Вмержить ветку Bag Reports в Main
+для этого сначала заходим в main:  $ git checkout main
+$ git merge BugReports
+
+
+6. Запушить main на внешний репозиторий.
+сначала проверим не изменились ли файлы на внешнем репозитории: $ git fetch
+там изменений не было, хорошо, иначе сначала надо было бы запулить из себе а потом уже пушить.
+затем можно проверить: git status
+нам ответило: On branch main
+              Your branch is ahead of 'origin/main' by 1 commit.
+              (use "git push" to publish your local commits)
+раз советует пушить, то будем пушить):  $ git push
+получил ответ: Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+               To github.com:Aliaksei78/Course_by_Vadim_Ksendzov.git
+               4ed23d5..4eea148  main -> main
+
+7. В ветке CheckLists набросать структуру чек листа.
+сначала переходим в ветку CheckLists:  $ git checkout CheckLists
+создаём файл: $ touch CheckList.txt
+$ vim CheckList.txt
+Нажал I, ввёл структуру, нажал ESC :wq Enter
+
+
+8. Запушить структуру на внешний репозиторий
+$ git add CheckList.txt
+$ git commit -m "The file CheckList.txt is added"
+$ git push
+получил ответ: Enumerating objects: 4, done.
+               Counting objects: 100% (4/4), done.
+               Delta compression using up to 4 threads
+               Compressing objects: 100% (3/3), done.
+               Writing objects: 100% (3/3), 363 bytes | 90.00 KiB/s, done.
+               Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+               To github.com:Aliaksei78/Course_by_Vadim_Ksendzov.git
+               4ed23d5..9fab198  CheckLists -> CheckLists
+
+
+9. На внешнем репозитории сделать Pull Request ветки CheckLists в main
+На внешнем репозитории нажал на кнопку Compare & Pull Request
+куда тащить выбрал main из выпадающего меню
+оставил комментарий: pull request of brunch "CheckList" to the branch "main"
+нажал на зелёную кнопку: Create pull request.
+получил сообщение: This branch has no conflicts with the base branch
+нажал на зелёную кнопку: Merge pull request.
+нажал на зелёную кнопку: Confirm merge.
+получил сообщение: Pull request successfully merged and closed
+
+
+10. Синхронизировать Внешнюю и Локальную ветки Main
+$ git fetch
+$ git pull
+получил ответ: Updating 4eea148..f2fe186
+               Fast-forward
+               CheckList.txt | 11 +++++++++++
+               1 file changed, 11 insertions(+)
+               create mode 100644 CheckList.txt
+
+
+
+
